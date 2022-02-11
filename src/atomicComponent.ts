@@ -31,7 +31,13 @@ const atomicComponent = (
 		type: "list",
 		name: "type",
 		message: "component type",
-		choices: ["Atom", "Molecule", "Organism", "Template", "Page"],
+		choices: [
+			"Atoms",
+			"Molecules",
+			"Organisms",
+			"Templates",
+			"Page-Components",
+		],
 	});
 
 	prompts.push({
@@ -112,7 +118,7 @@ const atomicComponent = (
 			type: "add",
 			path:
 				fullConfig.basePath +
-				"/{{pascalCase type }}//{{pascalCase name}}/index.ts",
+				"/{{ lowerCase type }}//{{pascalCase name}}/index.ts",
 			templateFile: indexTemplateFile,
 			data,
 		});
@@ -131,7 +137,7 @@ const atomicComponent = (
 			type: "add",
 			path:
 				fullConfig.basePath +
-				"/{{pascalCase type }}/{{pascalCase name}}/{{pascalCase name}}.tsx",
+				"/{{ lowerCase type }}//{{pascalCase name}}/{{kebabCase name}}.tsx",
 			templateFile: functionalTemplateFile,
 			data,
 		});
@@ -148,7 +154,7 @@ const atomicComponent = (
 			type: "add",
 			path:
 				fullConfig.basePath +
-				"/{{pascalCase type }}/{{pascalCase name}}/{{pascalCase name}}.tsx",
+				"/{{ lowerCase type }}//{{pascalCase name}}/{{kebabCase name}}.tsx",
 			templateFile: classBasedTemplateFile,
 			data,
 		});
@@ -166,7 +172,7 @@ const atomicComponent = (
 			type: "add",
 			path:
 				fullConfig.basePath +
-				"/{{pascalCase type}}/{{pascalCase name}}/{{pascalCase name}}.test.tsx",
+				"/{{ lowerCase type }}//{{pascalCase name}}/{{kebabCase name}}.test.tsx",
 			templateFile: testTemplateFile,
 			data,
 		});
@@ -184,7 +190,7 @@ const atomicComponent = (
 			type: "add",
 			path:
 				fullConfig.basePath +
-				"/{{pascalCase type }}/{{pascalCase name}}/{{pascalCase name}}.stories.tsx",
+				"/{{ lowerCase type }}//{{pascalCase name}}/{{kebabCase name}}.stories.tsx",
 			templateFile: storyTemplateFile,
 			data,
 		});
@@ -201,7 +207,7 @@ const atomicComponent = (
 		type: "add",
 		path:
 			fullConfig.basePath +
-			"/{{pascalCase type }}/{{pascalCase name}}/{{pascalCase name}}.styles.ts",
+			"/{{ lowerCase type }}//{{pascalCase name}}/{{kebabCase name}}.styles.ts",
 		templateFile: stylesTemplateFile,
 		data,
 	});
