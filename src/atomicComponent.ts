@@ -10,6 +10,7 @@ const atomicComponent = (
 ) => {
 	const defaultConfig: GeneratorConfig = {
 		additionalTemplates: false,
+		choices: ["Atoms", "Molecules", "Organisms", "Templates", "Pages"],
 		createIndex: true,
 		createStyles: true,
 		functional: true,
@@ -34,7 +35,7 @@ const atomicComponent = (
 		type: "list",
 		name: "type",
 		message: "component type",
-		choices: ["Atom", "Molecule", "Organism", "Template", "Page"],
+		choices: fullConfig.choices,
 	});
 
 	prompts.push({
