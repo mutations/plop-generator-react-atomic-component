@@ -1,10 +1,12 @@
 import { NodePlopAPI } from "node-plop";
-
-import atomicComponent from "./atomicComponent";
 import { FileNameFormatters } from "./types";
-
 export interface GeneratorConfig {
-	additionalTemplates: { extension: string; template: string }[] | false;
+	additionalTemplates:
+		| {
+				extension: string;
+				template: string;
+		  }[]
+		| false;
 	choices: string[];
 	createIndex: boolean;
 	createStyles: boolean;
@@ -27,14 +29,8 @@ export interface GeneratorConfig {
 	fileNameFormatter?: FileNameFormatters;
 	dirNameFormatter?: FileNameFormatters;
 }
-
-const generator = (
+declare const generator: (
 	plop: NodePlopAPI,
 	config: Partial<GeneratorConfig>
-): void => {
-	const component = atomicComponent(config, plop);
-	plop.setDefaultInclude({ generators: true });
-	plop.setGenerator("atomic-component", component);
-};
-
+) => void;
 export default generator;
