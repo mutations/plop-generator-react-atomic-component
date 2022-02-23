@@ -229,14 +229,16 @@ const atomicComponent = (
 		}
 	}
 
-	actions.push({
-		type: "add",
-		path:
-			fullConfig.basePath +
-			`/${formattedType}/${formattedDirName}/${formattedFileName}.styles.ts`,
-		templateFile: stylesTemplateFile,
-		data,
-	});
+	if (fullConfig.createStyles === undefined || fullConfig.createStyles) {
+		actions.push({
+			type: "add",
+			path:
+				fullConfig.basePath +
+				`/${formattedType}/${formattedDirName}/${formattedFileName}.styles.ts`,
+			templateFile: stylesTemplateFile,
+			data,
+		});
+	}
 
 	if (fullConfig.additionalTemplates !== undefined) {
 		fullConfig.additionalTemplates.forEach(({ extension, template }) => {

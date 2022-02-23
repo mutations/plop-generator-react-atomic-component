@@ -95,8 +95,8 @@ src
             ├── $ComponentName.tsx
             ├── $ComponentName.test.tsx (optional)
             ├── $ComponentName.stories.tsx (optional)
-            ├── $ComponentName.styles.tsx (optional)
             ├── $ComponentName.custom.ts (optional see additionalTemplates)
+            ├── $ComponentName.styles.ts (optional)
             └── index.tsx (optional)
 ```
 
@@ -108,6 +108,7 @@ export interface GeneratorConfig {
   choices?: string[]; //modify the default atomic naming choices eg. ["Atom", "Molecule", "Organism", "Template", "Page"],
 
   createIndex: boolean; //create an index file
+  createStyles: boolean; //create a styles file
   functional: boolean; //should the template be functional or class based?
   basePath: string; //where do you want to store the generated files
   withClassnameInterfaceImportPath: string; //from where can we import the classname interface
