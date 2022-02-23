@@ -105,6 +105,8 @@ src
 ```typescript
 export interface GeneratorConfig {
   additionalTemplates?: { extension: string; template: string }[]; //custom template extension eg. custom.ts, & template path to the corresponding files, need to be an absolute path
+  choices?: string[]; //modify the default atomic naming choices eg. ["Atom", "Molecule", "Organism", "Template", "Page"],
+
   createIndex: boolean; //create an index file
   functional: boolean; //should the template be functional or class based?
   basePath: string; //where do you want to store the generated files

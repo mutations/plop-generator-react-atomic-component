@@ -5,6 +5,7 @@ import { FileNameFormatters } from "./types";
 
 export interface GeneratorConfig {
 	additionalTemplates?: { extension: string; template: string }[];
+	choices?: string[];
 	createIndex: boolean;
 	functional: boolean;
 	basePath: string;
